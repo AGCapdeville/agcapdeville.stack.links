@@ -30,6 +30,9 @@
             }            
             console.log('data: ', data);
 
+            const list = document.createElement('ol');
+            document.body.appendChild(list);
+
             for (const {answer_id} of data.items) {
                 const entry = document.createElement('li');
                 const hyperlink = document.createElement('a');
