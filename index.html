@@ -33,12 +33,13 @@
             const list = document.createElement('ol');
             document.body.appendChild(list);
 
-            // for (const {title} of data.items){
-            //     const entry = document.createElement('li');
-            //     const hyperlink = document.createElement('a');
-            //     entry.appendChild(hyperlink);
-            //     list.appendChild(entry);
-            // }
+            for (const {answer_id} of data.items){
+                const entry = document.createElement('li');
+                const hyperlink = document.createElement('a');
+                entry.appendChild(hyperlink);
+                list.appendChild(entry);
+                hyperlink.textContent = answer_id;
+            }
 
         });
         } catch (error) {
