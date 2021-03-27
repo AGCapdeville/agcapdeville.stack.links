@@ -19,8 +19,9 @@
 
         const url =   
            'https://api.stackexchange.com' +
-           '/docs/answers#order=desc&sort=activity&filter=!6Utb6*CGSHEa6&site=stackoverflow' +
-           '&key=9qBqdvJzh8Ld6GqunKRwJQ((';
+           '/docs/questions#order=desc&sort=activity&tagged=ipv4'+
+           '&filter=!BHMIbze0EPheMk572h0ktETsgnphhU&site=stackoverflow&run=true';
+
 
         fetch(url).then(response => response.json()).then( data => {
             if (data.error_message){
