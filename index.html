@@ -18,9 +18,7 @@
         //     '&tagged=javascript&sort=month&filter=unsafe&key=9qBqdvJzh8Ld6GqunKRwJQ((';
 
         const url =   
-           'https://api.stackexchange.com' +
-           '/docs/questions#order=desc&sort=activity&tagged=ipv4'+
-           '&filter=!BHMIbze0EPheMk572h0ktETsgnphhU&site=stackoverflow&run=true';
+           'https://api.stackexchange.com';
 
 
         fetch(url).then(response => response.json()).then( data => {
