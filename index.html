@@ -28,25 +28,18 @@
             if (data.error_message){
                 throw new Error(data.error_message);
             }            
-            // console.log('data: ', data);
+            console.log('data: ', data);
+
             const list = document.createElement('ol');
             document.body.appendChild(list);
 
-            for (const {title, link} of data.items) {
-                const entry = document.createElement('li');
-                const hyperlink = document.createElement('a');
-                entry.appendChild(hyperlink);
-                list.appendChild(entry);
+            // for (const {title} of data.items){
+            //     const entry = document.createElement('li');
+            //     const hyperlink = document.createElement('a');
+            //     entry.appendChild(hyperlink);
+            //     list.appendChild(entry);
+            // }
 
-                hyperlink.textContent = title;
-                hyperlink.href = link;
-            }
-            }).then(null, error => {
-            const message = document.createElement('pre');
-            document.body.appendChild(message);
-            message.style.color = 'red';
-
-            message.textContent = String(error);
         });
         } catch (error) {
             console.log(error);
