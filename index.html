@@ -30,23 +30,24 @@
             }            
             console.log('data: ', data);
 
-            const list = document.createElement('ol');
-            document.body.appendChild(list);
-
-            for (const {answer_id} of data.items){
+            for (const {answer_id} of data.items) {
                 const entry = document.createElement('li');
                 const hyperlink = document.createElement('a');
                 entry.appendChild(hyperlink);
                 list.appendChild(entry);
+
                 hyperlink.textContent = answer_id;
             }
+            }).then(null, error => {
+                const message = document.createElement('pre');
+                document.body.appendChild(message);
+                message.style.color = 'red';
+                message.textContent = String(error);
+            });
 
-        });
         } catch (error) {
             console.log(error);
-        }
-
-
+        };
         // fetch(url).then(response => response.json()).then(data => {
         // if (data.error_message) {
         //     throw new Error(data.error_message);
