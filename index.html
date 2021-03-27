@@ -19,17 +19,21 @@
 
         const url =   
            'https://api.stackexchange.com'+
-           '/docs/answers#order=desc&sort=activity&filter=default&site=stackoverflow';
-
+           '/2.2/answers?order=desc&sort=activity&site=stackoverflow';
 
         console.log('url: ', url);
-        fetch(url).then(response => response.json()).then( data => {
+        
+        try {
+            fetch(url).then(response => response.json()).then( data => {
             if (data.error_message){
                 throw new Error(data.error_message);
-            }
-            
-            console.log(data);
+            }            
+            console.log('data: ', data);
         });
+        } catch (error) {
+            console.log(error);
+        }
+
 
         // fetch(url).then(response => response.json()).then(data => {
         // if (data.error_message) {
