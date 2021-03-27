@@ -13,10 +13,6 @@
     <p>Hello, welcome to stack links, this is a quick little project that I smashed togeather over a weekend. It uses stack exchange api.</p>
     
     <script>
-        // const url =
-        //     'http://api.stackexchange.com/2.2/questions?site=stackoverflow' +
-        //     '&tagged=javascript&sort=month&filter=unsafe&key=9qBqdvJzh8Ld6GqunKRwJQ((';
-
         const url =   
            'https://api.stackexchange.com'+
            '/2.2/answers?order=desc&sort=activity&site=stackoverflow';
@@ -33,14 +29,14 @@
             const list = document.createElement('ol');
             document.body.appendChild(list);
 
-            for (const {answer_id} of data.items) {
+            for (const {owner} of data.items) {
                 const entry = document.createElement('li');
                 const hyperlink = document.createElement('a');
                 entry.appendChild(hyperlink);
                 list.appendChild(entry);
-                hyperlink.textContent = answer_id;
+                hyperlink.textContent = owner.display_name;
             }
-            
+
         });
 
         } catch (error) {
