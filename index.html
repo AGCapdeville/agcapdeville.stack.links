@@ -22,10 +22,12 @@
            '/docs/answers#order=desc&sort=activity&filter=default&site=stackoverflow';
 
 
+        console.log('url: ', url);
         fetch(url).then(response => response.json()).then( data => {
             if (data.error_message){
                 throw new Error(data.error_message);
             }
+            
             console.log(data);
         });
 
