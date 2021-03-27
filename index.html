@@ -13,34 +13,46 @@
     <p>Hello, welcome to stack links, this is a quick little project that I smashed togeather over a weekend. It uses stack exchange api.</p>
     
     <script>
-        const url =
-            'http://api.stackexchange.com/2.2/questions?site=stackoverflow' +
-            '&tagged=javascript&sort=month&filter=unsafe&key=9qBqdvJzh8Ld6GqunKRwJQ((';
+        // const url =
+        //     'http://api.stackexchange.com/2.2/questions?site=stackoverflow' +
+        //     '&tagged=javascript&sort=month&filter=unsafe&key=9qBqdvJzh8Ld6GqunKRwJQ((';
 
-        fetch(url).then(response => response.json()).then(data => {
-        if (data.error_message) {
-            throw new Error(data.error_message);
-        }
+        const url =   
+           'https://api.stackexchange.com' +
+           '/docs/answers#order=desc&sort=activity&filter=!6Utb6*CGSHEa6&site=stackoverflow' +
+           '&key=9qBqdvJzh8Ld6GqunKRwJQ((';
 
-        const list = document.createElement('ol');
-        document.body.appendChild(list);
-
-        for (const {title, link} of data.items) {
-            const entry = document.createElement('li');
-            const hyperlink = document.createElement('a');
-            entry.appendChild(hyperlink);
-            list.appendChild(entry);
-
-            hyperlink.textContent = title;
-            hyperlink.href = link;
-        }
-        }).then(null, error => {
-        const message = document.createElement('pre');
-        document.body.appendChild(message);
-        message.style.color = 'red';
-
-        message.textContent = String(error);
+        fetch(url).then(response => response.json()).then( data => {
+            if (data.error_message){
+                throw new Error(data.error_message);
+            }
+            console.log(data);
         });
+
+        // fetch(url).then(response => response.json()).then(data => {
+        // if (data.error_message) {
+        //     throw new Error(data.error_message);
+        // }
+
+        // const list = document.createElement('ol');
+        // document.body.appendChild(list);
+
+        // for (const {title, link} of data.items) {
+        //     const entry = document.createElement('li');
+        //     const hyperlink = document.createElement('a');
+        //     entry.appendChild(hyperlink);
+        //     list.appendChild(entry);
+
+        //     hyperlink.textContent = title;
+        //     hyperlink.href = link;
+        // }
+        // }).then(null, error => {
+        // const message = document.createElement('pre');
+        // document.body.appendChild(message);
+        // message.style.color = 'red';
+
+        // message.textContent = String(error);
+        // });
     </script>
 
 </body>
